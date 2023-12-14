@@ -17,6 +17,7 @@
 }
 
 body {
+  overflow-y: scroll;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -24,4 +25,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+.container{
+  @apply max-w-5xl mx-auto w-full px-2
+}
+.item:nth-child(2n){
+  @apply flex-row-reverse
 }
