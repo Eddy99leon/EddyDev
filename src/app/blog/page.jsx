@@ -23,18 +23,18 @@ const Blog = async () => {
   const data = await getData();
 
   return (
-    <div className='container space-y-10 py-8'>
+    <div className='container py-8 divide-y divide-gray-800'>
       {data.map((item) => (
-         <div key={item._id}>
-            <Link  href={`/blog/${item._id}`} as={`/blog/${item._id}`} className='grid grid-cols-5 gap-6'>
-              <div className=' col-span-2'>
+         <div key={item._id} className='py-6'>
+            <Link  href={`/blog/${item._id}`} as={`/blog/${item._id}`} className='grid grid-cols-1 md:grid-cols-5 gap-6'>
+              <div className=' md:col-span-2'>
                 <Image src={illustration} alt='portfolio' className='w-full' />
               </div>
-              <div className='col-span-3 space-y-2'>
-                <h1 className='text-xl text-gray-200 font-semibold'>
+              <div className='md:col-span-3 space-y-2'>
+                <h1 className='text-base md:text-xl text-gray-200 font-semibold'>
                   {item.title}
                 </h1>
-                <p className='text-gray-400 font-medium text-justify'>
+                <p className='text-gray-400 text-sm md:text-base font-medium text-justify'>
                   {item.desc}
                 </p>
               </div>

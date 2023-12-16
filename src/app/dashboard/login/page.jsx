@@ -34,7 +34,7 @@ const Login = () => {
 
   return (
     <div className='container'>
-      <h1 className='text-center font-semibold mb-12 text-3xl'>
+      <h1 className='text-center font-semibold mb-12 text-2xl sm:text-3xl'>
         Connecte ton compte,
       </h1>
       <form 
@@ -43,17 +43,17 @@ const Login = () => {
       >
         <input 
           type="email"
-          className='p-3 w-[360px] outline-none border-none rounded-sm bg-gray-700 font-semibold mb-3'
+          className='p-3 w-[310px] sm:w-[360px] outline-none border-none rounded-sm bg-gray-700 font-semibold mb-3'
           placeholder='email' 
           required
         />
         <input 
           type="password" 
-          className='p-3 w-[360px] outline-none border-none rounded-sm bg-gray-700 font-semibold mb-2'
+          className='p-3 w-[310px] sm:w-[360px] outline-none border-none rounded-sm bg-gray-700 font-semibold mb-2'
           placeholder='Mot de passe'
           required
         />
-        <div className='flex'> 
+        <div className='flex text-sm sm:text-base'> 
           <h1 className='mr-1'>
             Vous n'avez pas de compte ?
           </h1>
@@ -62,15 +62,15 @@ const Login = () => {
           </Link>
         </div>
         <button 
-          className="bg-sky-600 text-gray-950 font-semibold text-sm w-[360px] py-2 rounded-sm"
+          className="bg-sky-600 text-gray-950 font-semibold text-sm w-[310px] sm:w-[360px] py-2 rounded-sm"
         >
           Se connecte
         </button>
       </form>
-      <p className='text-xl font-medium text-center mt-3'>
+      <p className='text-lg sm:text-xl font-medium text-center mt-3'>
         ou
       </p>
-      <div className='flex items-center justify-center mt-3 gap-6'>
+      <div className='flex items-center justify-center mt-3 gap-3 sm:gap-6'>
         <button
           onClick={() => signIn("google")}
           className='flex items-center py-4 px-8 border border-gray-800 rounded-md'

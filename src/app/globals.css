@@ -27,8 +27,8 @@ body {
     rgb(var(--background-start-rgb));
 }
 .container{
-  @apply max-w-5xl mx-auto w-full px-2
+  @apply max-w-5xl mx-auto w-full px-3
 }
 .item:nth-child(2n){
-  @apply flex-row-reverse
+  @apply md:flex-row-reverse
 }

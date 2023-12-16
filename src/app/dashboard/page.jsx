@@ -56,14 +56,14 @@ const Dashboard = () => {
 
         <div className='flex items-center justify-between py-4 border-b border-gray-800'>
           <div className='flex items-center'>
-            <div className='rounded-full overflow-hidden mr-4'>
-              <Image src={illustration} alt='portfolio' className='w-12 h-12' />
+            <div className='rounded-full overflow-hidden mr-2 sm:mr-4'>
+              <Image src={illustration} alt='portfolio' className='w-8 sm:w-12 h-8 sm:h-12' />
             </div>
             <div>
-              <h1 className='font-medium text-gray-100'>
+              <h1 className='font-medium text-sm sm:text-base text-gray-100'>
                 {session.data.user.name}
               </h1>
-              <p className='text-gray-400 text-sm'>
+              <p className='text-gray-400 text-xs sm:text-sm'>
                 {session.data.user.email}
               </p>
             </div>
@@ -72,52 +72,53 @@ const Dashboard = () => {
             href="/dashboard/addBlog"
           >
             <button 
-              className="bg-sky-600 text-gray-950 font-semibold text-sm py-2 px-4 rounded-sm"
+              className="bg-sky-600 text-gray-950 font-semibold text-sm py-1 sm:py-2 px-2 sm:px-4 rounded-sm"
             >
               Ajouter
             </button>
           </Link>
         </div>
 
-        <div className='space-y-8 pt-8 min-h-[400px]'>
+        <div className='pt-8 min-h-[400px] divide-y divide-gray-800'>
           {isLoading? 
             <div className='w-full h-full text-3xl flex justify-center items-center'>
               <LuLoader2 className='animate-spin' />
             </div>
             :
             data?.map((item) => (
-              <div key={item._id} className='relative group overflow-hidden'>
-                <div className='grid grid-cols-5 gap-6'>
+              <div key={item._id} className='group overflow-hidden py-6'>
+                <div className='grid grid-cols-1 md:grid-cols-5 gap-6'>
                   <div
-                    className='col-span-2 overflow-hidden'
+                    className='md:col-span-2 overflow-hidden relative'
                   >
                     <Image src={illustration} alt='portfolio' className='w-full h-[230px] object-cover' />
+                    <div className='absolute -left-12 group-hover:left-2 inset-y-0 flex flex-col justify-center gap-3 transition-all duration-200'>
+                      <Link 
+                        href={`/blog/${item._id}`} as={`/blog/${item._id}`}
+                        className='bg-blue-600 shadow-lg p-3'
+                      >
+                        <MdRemoveRedEye className='text-xl text-black' />
+                      </Link>
+                      <button 
+                        onClick={() => handleDelete(item._id)}
+                        className='bg-blue-600 shadow-lg p-3'
+                      >
+                        <MdDelete className='text-xl text-black' />
+                      </button>
+                    </div>
                   </div>
                   <div 
-                    className='col-span-3'
+                    className='md:col-span-3'
                   >
-                    <h1 className='flex justify-between text-lg text-gray-200 font-semibold'>
+                    <h1 className='flex justify-between text-base sm:text-lg text-gray-200 font-semibold'>
                       {item.title}
                     </h1>
-                    <p className='text-justify text-gray-400 font-medium'>
+                    <p className='text-justify text-sm sm:text-base text-gray-400 font-medium'>
                       {item.desc}
                     </p>
                   </div>
                 </div>
-                <div className='absolute -left-12 group-hover:left-2 inset-y-0 flex flex-col justify-center gap-3 transition-all duration-200'>
-                  <Link 
-                    href={`/blog/${item._id}`} as={`/blog/${item._id}`}
-                    className='bg-blue-600 shadow-lg p-3'
-                  >
-                    <MdRemoveRedEye className='text-xl text-black' />
-                  </Link>
-                  <button 
-                    onClick={() => handleDelete(item._id)}
-                    className='bg-blue-600 shadow-lg p-3'
-                  >
-                    <MdDelete className='text-xl text-black' />
-                  </button>
-                </div>
+                
               </div>
             ))
           }

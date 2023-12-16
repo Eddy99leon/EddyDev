@@ -33,7 +33,7 @@ const Register = () => {
 
   return (
     <div className='container'>
-      <h1 className='text-center font-semibold mb-12 text-3xl'>
+      <h1 className='text-center font-semibold mb-12 text-2xl sm:text-3xl'>
         S'inscrire,
       </h1>
       <form 
@@ -42,24 +42,24 @@ const Register = () => {
       >
         <input 
           type="text" 
-          className='p-3 w-[360px] outline-none border-none rounded-sm bg-gray-700 font-semibold mb-3'
+          className='p-3 w-[310px] sm:w-[360px] outline-none border-none rounded-sm bg-gray-700 font-semibold mb-3'
           placeholder='Prenom' 
           required
         />
         <input 
           type="email"
-          className='p-3 w-[360px] outline-none border-none rounded-sm bg-gray-700 font-semibold mb-3'
+          className='p-3 w-[310px] sm:w-[360px] outline-none border-none rounded-sm bg-gray-700 font-semibold mb-3'
           placeholder='email' 
           required
         />
         <input 
           type="password" 
-          className='p-3 w-[360px] outline-none border-none rounded-sm bg-gray-700 font-semibold mb-3'
+          className='p-3 w-[310px] sm:w-[360px] outline-none border-none rounded-sm bg-gray-700 font-semibold mb-3'
           placeholder='Mot de passe' 
           required
         />
         {err && "Something went wrong!"}
-        <div className='flex'> 
+        <div className='flex text-sm sm:text-base'> 
           <h1 className='mr-1'>
             Vous avez deja un compte?
           </h1>
@@ -68,7 +68,7 @@ const Register = () => {
           </Link>
         </div>
         <button 
-          className="bg-sky-600 text-gray-950 font-semibold text-sm w-[360px] py-2 rounded-sm"
+          className="bg-sky-600 text-gray-950 font-semibold text-sm w-[310px] sm:w-[360px] py-2 rounded-sm"
         >
           S'inscrire
         </button>

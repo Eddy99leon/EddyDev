@@ -54,8 +54,8 @@ const AddBlog = () => {
 
   if(session.status === "authenticated"){
     return (
-        <div className='max-w-2xl mx-auto w-full'>
-            <h1 className='text-3xl text-center font-medium mb-4'>
+        <div className='max-w-2xl mx-auto w-full px-3'>
+            <h1 className='text-2xl sm:text-3xl text-center font-medium mb-4'>
                 Ajouter nouvelle blog,
             </h1>
             <form 
@@ -85,7 +85,7 @@ const AddBlog = () => {
                     required
                 />
                 <button 
-                    className="bg-sky-600 text-gray-950 font-semibold text-sm px-20 py-3 rounded-sm"
+                    className="bg-sky-600 text-gray-950 font-semibold text-sm w-full px-20 py-3 rounded-sm"
                 >
                     Publier
                 </button>

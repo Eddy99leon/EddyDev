@@ -27,17 +27,17 @@ const BlogPost = async ({params}) => {
   return (
     <div className='container'>
 
-      <div className='grid grid-cols-2 gap-8 mb-6'>
-        <div className='space-y-4'>
-          <h1 className='text-xl text-gray-200 font-semibold'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-6'>
+        <div className='space-y-2 sm:space-y-4'>
+          <h1 className='text-lg sm:text-xl text-gray-200 font-semibold'>
             {data?.title}
           </h1>
-          <p className='text-gray-400 font-medium text-justify'>
+          <p className='text-gray-400 font-medium text-justify text-sm sm:text-base'>
             {data?.desc}
           </p>
           <div className='flex items-center'>
             <Image src={illustration} alt='portfolio' className='w-8 h-8 overflow-hidden rounded-full mr-2' />
-            <h1 className='text-gray-300 font-semibold text-lg'>
+            <h1 className='text-gray-300 font-semibold text-base sm:text-lg'>
               {data?.username}
             </h1>
           </div>
@@ -47,7 +47,7 @@ const BlogPost = async ({params}) => {
         </div>
       </div>
 
-      <div className='space-y-4 text-gray-400 font-medium text-justify'>
+      <div className='text-gray-400 font-medium text-justify text-sm sm:text-base pb-10'>
         {data?.content}
       </div>
 
