@@ -10,13 +10,15 @@ export const metadata = {
 }
 
 const Blog = async () => {
-  
+
   async function getData() {
     const res = await fetch(process.env.URL +"/api/posts", {
       cache: "no-store",
     });
     if(!res.ok){
-      throw new Error("Failed to fetch data");
+      return {
+        res: [] 
+      };
     }
     return res.json();
   }
@@ -24,7 +26,7 @@ const Blog = async () => {
 
   return (
     <div className='container py-8 divide-y divide-gray-800'>
-      {data.map((item) => (
+      {data?.map((item) => (
          <div key={item._id} className='py-6'>
             <Link  href={`/blog/${item._id}`} className='grid grid-cols-1 md:grid-cols-5 gap-6'>
               <div className=' md:col-span-2'>
