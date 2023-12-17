@@ -9,17 +9,17 @@ export const metadata = {
   description: 'this is blog page of EddyDev',
 }
 
-async function getData() {
-  const res = await fetch(process.env.URL + "/api/posts", {
-    cache: "no-store",
-  });
-  if(!res.ok){
-    throw new Error("Failed to fetch data");
-  }
-  return res.json();
-}
-
 const Blog = async () => {
+  
+  async function getData() {
+    const res = await fetch(process.env.URL +"/api/posts", {
+      cache: "no-store",
+    });
+    if(!res.ok){
+      throw new Error("Failed to fetch data");
+    }
+    return res.json();
+  }
   const data = await getData();
 
   return (

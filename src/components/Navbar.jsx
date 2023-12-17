@@ -5,7 +5,6 @@ import Link from 'next/link'
 import React, { useContext } from 'react'
 import { FcBarChart } from "react-icons/fc";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
-import { LuLoader2 } from 'react-icons/lu';
 
 const links = [
   {
