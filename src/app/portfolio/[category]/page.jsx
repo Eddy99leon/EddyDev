@@ -36,8 +36,8 @@ const Category = ({params}) => {
                 See More
               </button>
             </div>
-            <div className='flex-1 order-first md:order-none mb-2 md:mb-0'>
-              <Image src={item.image} priority={false} alt='portfolio' className='w-full' />
+            <div className='flex-1 order-first md:order-none mb-2 md:mb-0 w-full h-full'>
+              <Image src={item.image} priority={true} alt='portfolio' className='w-full h-full md:h-[250px] object-cover' />
             </div>
           </div>
         ))}

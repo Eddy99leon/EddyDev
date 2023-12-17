@@ -53,7 +53,7 @@ const BlogPost = ({params}) => {
           </div>
         </div>
         <div className=''>
-          <Image src={illustration} priority={true} alt='portfolio' className='w-full h-[250px] object-cover' />
+          <Image src={illustration} priority={true} alt='portfolio' className='w-full h-[200px] md:h-[250px] object-cover' />
         </div>
       </div>
 

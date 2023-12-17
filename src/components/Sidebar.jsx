@@ -1,7 +1,6 @@
 "use client"
 import React, { useContext } from 'react'
 import { IoMdClose } from "react-icons/io"
-import { BiLogoFacebookCircle, BiLogoGithub, BiLogoLinkedinSquare } from 'react-icons/bi';
 import { SidebarContext } from '@/contexts/SidebarContext';
 import Link from 'next/link';
 import { FcBarChart } from 'react-icons/fc';
@@ -88,7 +87,7 @@ const Sidebar = () => {
                   <Link
                     key={link.id} 
                     href={link.url} 
-                    onClick={handleClose}
+                    onClick={()=> { setIsOpen(false), document.body.style.overflow = "auto" }}
                     className='hover:text-blue-500 font-semibold text-md sm:text-lg text-gray-200'
                   >
                     {link.title}
