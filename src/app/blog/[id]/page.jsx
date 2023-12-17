@@ -36,14 +36,14 @@ const BlogPost = async ({params}) => {
             {data?.desc}
           </p>
           <div className='flex items-center'>
-            <Image src={illustration} priority={false} alt='portfolio' className='w-8 h-8 overflow-hidden rounded-full mr-2' />
+            <Image src={illustration} priority={true} alt='portfolio' className='w-8 h-8 overflow-hidden rounded-full mr-2' />
             <h1 className='text-gray-300 font-semibold text-base sm:text-lg'>
               {data?.username}
             </h1>
           </div>
         </div>
         <div className=''>
-          <Image src={illustration} priority={false} alt='portfolio' className='w-full' />
+          <Image src={illustration} priority={true} alt='portfolio' className='w-full h-[250px] object-cover' />
         </div>
       </div>
 
