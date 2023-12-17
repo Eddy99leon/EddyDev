@@ -40,7 +40,7 @@ const AddBlog = () => {
   }
 
   //loading fonctionalite
-  if(session.status === "loadind"){
+  if(session.status === "loading"){
     return (
       <div className='container w-full h-full text-4xl justify-center items-center'>
         <LuLoader2 className='animate-spin mx-auto' />
@@ -49,12 +49,9 @@ const AddBlog = () => {
   }
 
   //redirection vers login page
-  useEffect(() => {
-    if (session.status === 'unauthenticated') {
-      router?.push('/dashboard/login');
-    }
-  }, [session.status, router]);
-
+  if (session.status === 'unauthenticated') {
+    router?.push('/dashboard/login');
+  }
 
   if(session.status === "authenticated"){
     return (

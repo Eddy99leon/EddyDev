@@ -2,7 +2,7 @@
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import React, { useEffect } from 'react'
+import React from 'react'
 import useSWR from 'swr'
 import illustration from 'public/illustration.jpg'
 import { LuLoader2 } from 'react-icons/lu'
@@ -21,22 +21,6 @@ const Dashboard = () => {
     fetcher
   );
 
-  //loading fonctionalite
-  if(session.status === "loading"){
-    return (
-      <div className='container w-full h-full text-4xl justify-center items-center'>
-        <LuLoader2 className='animate-spin mx-auto' />
-      </div>
-    )
-  }
-
-  //redirection vers login page
-  useEffect(() => {
-    if (session.status === 'unauthenticated') {
-      router?.push('/dashboard/login');
-    }
-  }, [session.status, router]);
-
   //supprimer un blog
   const handleDelete = async (id) => {
     try{
@@ -49,7 +33,20 @@ const Dashboard = () => {
     }
   }
 
+  //loading fonctionalite
+  if(session.status === "loading"){
+    return (
+      <div className='container w-full h-full text-4xl justify-center items-center'>
+        <LuLoader2 className='animate-spin mx-auto' />
+      </div>
+    )
+  }
 
+  //redirection vers login page
+  if (session.status === 'unauthenticated') {
+    router?.push('/dashboard/login');
+  }
+  
   if(session.status === "authenticated"){
     return (
       <div className='max-w-3xl w-full mx-auto px-4 py-4'>

@@ -1,29 +1,39 @@
+"use client"
 import React from 'react'
 import illustration from 'public/illustration.jpg'
 import Image from 'next/image'
-import { notFound } from 'next/navigation';
+import useSWR from 'swr'
+// import { notFound } from 'next/navigation';
 
 
-async function getData(id) {
-  const res = await fetch(process.env.URL + `/api/posts/${id}`, {
-    cache: "no-store",
-  });
-  if(!res.ok){
-    return notFound()
-  }
-  return res.json();
-}
+// async function getData(id) {
+//   const res = await fetch(process.env.URL + `/api/posts/${id}`, {
+//     cache: "no-store",
+//   });
+//   if(!res.ok){
+//     return notFound()
+//   }
+//   return res.json();
+// }
 
-export async function generateMetadata({ params }) {
-  const post = await getData(params.id)
-  return {
-    title: post?.title,
-    description: post?.desc,
-  }
-}
 
-const BlogPost = async ({params}) => {
-  const data = await getData(params.id)
+// export async function generateMetadata({ params }) {
+//   const post = await getData(params.id)
+//   return {
+//     title: post?.title,
+//     description: post?.desc,
+//   }
+// }
+
+const BlogPost = ({params}) => {
+
+  //recuperation des blogs
+  const fetcher = (...args) => fetch(...args).then((res) => res.json())
+  const { data, isLoading } = useSWR(
+    `/api/posts/${params.id}`,
+    fetcher
+  );
+
   return (
     <div className='container'>
 
