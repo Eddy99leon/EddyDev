@@ -1,28 +1,25 @@
+"use client"
 import Image from 'next/image'
 import React from 'react'
 import illustration from 'public/illustration.jpg'
 import Link from 'next/link'
+import useSWR from 'swr'
 
 
-export const metadata = {
-  title: 'EddyDev Blog',
-  description: 'this is blog page of EddyDev',
-}
+// export const metadata = {
+//   title: 'EddyDev Blog',
+//   description: 'this is blog page of EddyDev',
+// }
 
-const Blog = async () => {
+const Blog = () => {
+  
 
-  async function getData() {
-    const res = await fetch(process.env.URL +"/api/posts", {
-      cache: "no-store",
-    });
-    if(!res.ok){
-      return {
-        res: [] 
-      };
-    }
-    return res.json();
-  }
-  const data = await getData();
+  //recuperation des blogs
+  const fetcher = (...args) => fetch(...args).then((res) => res.json())
+  const { data, isLoading } = useSWR(
+    `/api/posts`,
+    fetcher
+  );
 
   return (
     <div className='container py-8 divide-y divide-gray-800'>

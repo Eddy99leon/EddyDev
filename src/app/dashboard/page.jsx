@@ -22,7 +22,7 @@ const Dashboard = () => {
   );
 
   //loading fonctionalite
-  if(session.status === "loadind"){
+  if(session.status === "loading"){
     return (
       <div className='container w-full h-full text-4xl justify-center items-center'>
         <LuLoader2 className='animate-spin mx-auto' />
