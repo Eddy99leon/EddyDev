@@ -16,7 +16,7 @@ const Contact = () => {
       </h1>
       <div className='flex items-center justify-between gap-10'>
         <div className='flex-1 hidden md:block'>
-          <Image src={contact} alt='contact' priority={true} className='w-full' />
+          <Image src={contact} alt='contact' priority={false} className='w-full' />
         </div>
         <div className='flex-1 flex justify-center'>
           <div className='flex flex-col gap-y-4'>

@@ -2,12 +2,14 @@
 import { signIn, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FcGoogle } from "react-icons/fc";
 import { PiGithubLogoDuotone } from "react-icons/pi";
 
 
 const Login = () => {
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
   const session = useSession();
   const router = useRouter();
 
@@ -29,7 +31,24 @@ const Login = () => {
     e.preventDefault()
     const email = e.target[0].value
     const password = e.target[1].value
-    signIn("credentials", { email, password })
+    setLoading(true)
+    try {
+      const response = await signIn('credentials', {
+        redirect: false,
+        email,
+        password,
+      })
+
+      if (!response.error) {
+        router.push('/dashboard')
+      } else {
+        setError('Invalid credentials')
+      }
+    } catch (err) {
+      setError('An error occurred')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -64,7 +83,7 @@ const Login = () => {
         <button 
           className="bg-sky-600 text-gray-950 font-semibold text-sm w-[310px] sm:w-[360px] py-2 rounded-sm"
         >
-          Se connecte
+          {loading? "loading.." : "Se connecte"}
         </button>
       </form>
       <p className='text-lg sm:text-xl font-medium text-center mt-3'>

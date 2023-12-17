@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 const Register = () => {
 
   const [ err, setErr] = useState(false)
+  const [loading, setLoading] = useState(false)
   const router = useRouter()
 
   const handleSubmit = async (e) => {
@@ -13,6 +14,7 @@ const Register = () => {
     const name = e.target[0].value
     const email = e.target[1].value
     const password = e.target[2].value
+    setLoading(true)
     try{
       const res = await fetch("/api/auth/register",{
         method:"POST",
@@ -28,6 +30,8 @@ const Register = () => {
       res.status === 201 && router.push("/dashboard/login?success=Account has been created");
     }catch(err){
       setErr(true)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -70,7 +74,7 @@ const Register = () => {
         <button 
           className="bg-sky-600 text-gray-950 font-semibold text-sm w-[310px] sm:w-[360px] py-2 rounded-sm"
         >
-          S'inscrire
+          {loading? "loading.." : "S'inscrire"}
         </button>
       </form>
     </div>

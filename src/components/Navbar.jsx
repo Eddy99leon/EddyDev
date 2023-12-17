@@ -5,6 +5,7 @@ import Link from 'next/link'
 import React, { useContext } from 'react'
 import { FcBarChart } from "react-icons/fc";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
+import { LuLoader2 } from 'react-icons/lu';
 
 const links = [
   {
@@ -65,22 +66,31 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        {session.status === "authenticated" && (
-          <button 
-            className="bg-blue-500 text-gray-950 font-semibold text-sm px-2 sm:px-4 py-1 sm:py-2 rounded-sm"
-            onClick={signOut}
-          >
-            Logout
-          </button>
-        )}
-        {session.status === "unauthenticated" && (
-          <Link 
-            className="bg-blue-500 text-gray-950 font-semibold text-sm px-2 sm:px-4 py-1 sm:py-2 rounded-sm"
-            href="/dashboard/login"
-          >
-            Login
-          </Link>
-        )}
+        <div>
+          {session.status === "loading" && (
+            <button 
+              className="flex items-center bg-blue-500 text-gray-950 font-semibold text-sm px-2 sm:px-4 py-1 sm:py-2 rounded-sm"
+            >
+              Load..
+            </button>
+          )}
+          {session.status === "unauthenticated" && (
+            <Link 
+              className="bg-blue-500 text-gray-950 font-semibold text-sm px-2 sm:px-4 py-1 sm:py-2 rounded-sm"
+              href="/dashboard/login"
+            >
+              Login
+            </Link>
+          )}
+          {session.status === "authenticated" && (
+            <button 
+              className="bg-blue-500 text-gray-950 font-semibold text-sm px-2 sm:px-4 py-1 sm:py-2 rounded-sm"
+              onClick={signOut}
+            >
+              Logout
+            </button>
+          )}
+        </div>
       </div>
     </div>
   )

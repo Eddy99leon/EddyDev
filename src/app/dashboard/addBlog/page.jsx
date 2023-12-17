@@ -1,11 +1,12 @@
 "use client"
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { mutate } from 'swr';
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { LuLoader2 } from 'react-icons/lu';
 
 const AddBlog = () => {
+  const [loading, setLoading] = useState(false)
   const session = useSession()
   const router = useRouter()
 
@@ -16,6 +17,7 @@ const AddBlog = () => {
     const desc = e.target[1].value;
     const img = e.target[2].value;
     const content = e.target[3].value;
+    setLoading(true)
     try{
       await fetch("/api/posts", {
         method: "POST",
@@ -32,6 +34,8 @@ const AddBlog = () => {
       router?.push('/dashboard');
     }catch(err){
       console.log(err)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -87,7 +91,7 @@ const AddBlog = () => {
                 <button 
                     className="bg-sky-600 text-gray-950 font-semibold text-sm w-full px-20 py-3 rounded-sm"
                 >
-                    Publier
+                    {loading? "Loading.." : "Publier"}
                 </button>
             </form>
         </div>

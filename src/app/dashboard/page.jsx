@@ -57,7 +57,13 @@ const Dashboard = () => {
         <div className='flex items-center justify-between py-4 border-b border-gray-800'>
           <div className='flex items-center'>
             <div className='rounded-full overflow-hidden mr-2 sm:mr-4'>
-              <Image src={illustration} alt='portfolio' className='w-8 sm:w-12 h-8 sm:h-12' />
+              <Image 
+                src={illustration} 
+                priority={false} 
+                placeholder = 'blur'
+                alt='portfolio' 
+                className='w-8 sm:w-12 h-8 sm:h-12' 
+              />
             </div>
             <div>
               <h1 className='font-medium text-sm sm:text-base text-gray-100'>
@@ -91,7 +97,13 @@ const Dashboard = () => {
                   <div
                     className='md:col-span-2 overflow-hidden relative'
                   >
-                    <Image src={illustration} alt='portfolio' className='w-full h-[230px] object-cover' />
+                    <Image 
+                      src={illustration} 
+                      priority={false} 
+                      placeholder = 'blur' 
+                      alt='portfolio' 
+                      className='w-full h-[230px] object-cover' 
+                    />
                     <div className='absolute -left-12 group-hover:left-2 inset-y-0 flex flex-col justify-center gap-3 transition-all duration-200'>
                       <Link 
                         href={`/blog/${item._id}`} as={`/blog/${item._id}`}

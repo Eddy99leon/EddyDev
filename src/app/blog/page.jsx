@@ -28,7 +28,7 @@ const Blog = async () => {
          <div key={item._id} className='py-6'>
             <Link  href={`/blog/${item._id}`} as={`/blog/${item._id}`} className='grid grid-cols-1 md:grid-cols-5 gap-6'>
               <div className=' md:col-span-2'>
-                <Image src={illustration} alt='portfolio' className='w-full' />
+                <Image src={illustration} priority={false} alt='portfolio' className='w-full' />
               </div>
               <div className='md:col-span-3 space-y-2'>
                 <h1 className='text-base md:text-xl text-gray-200 font-semibold'>
