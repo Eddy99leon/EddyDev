@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
             <div className='flex flex-col justify-between w-full min-h-screen transition-all duration-300'>
               <Sidebar />
               <Navbar />
-              {children}
+                {children}
               <Footer />
             </div>
           </AutProvider>

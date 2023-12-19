@@ -54,6 +54,8 @@ const Register = () => {
           type="email"
           className='p-3 w-[310px] sm:w-[360px] outline-none border-none rounded-sm bg-gray-700 font-semibold mb-3'
           placeholder='email' 
+          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+          title="Veuillez entrer une adresse e-mail valide"
           required
         />
         <input 

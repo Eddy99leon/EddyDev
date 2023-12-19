@@ -77,7 +77,9 @@ const AddBlog = () => {
                 <input 
                     type="text" 
                     className='w-full p-3 outline-none border-none rounded-sm bg-gray-700 font-semibold'
-                    placeholder='image-link' 
+                    placeholder='image-link (sur: https://unsplash.com seulement)'
+                    pattern="^https:\/\/unsplash\.com\/.*$" 
+                    title="Veuillez entrer un lien provenant uniquement de https://unsplash.com"
                     required
                 />
                 <textarea  
