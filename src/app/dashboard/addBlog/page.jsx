@@ -88,7 +88,7 @@ const AddBlog = () => {
                     required
                 />
                 <button 
-                    className="bg-sky-600 text-gray-950 font-semibold text-sm w-full px-20 py-3 rounded-sm"
+                    className="bg-blue-500 text-gray-950 font-semibold text-sm w-full px-20 py-3 rounded-sm"
                 >
                     {loading? "Loading.." : "Publier"}
                 </button>

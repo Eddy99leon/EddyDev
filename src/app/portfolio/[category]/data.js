@@ -19,7 +19,7 @@ export const items = {
         },
         {
             id: 2,
-            title: "Creative Portfolio EddyDev",
+            title: "Blog and réalisation EddyDev",
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor, sit amet consectetur adipisicing. Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet consectetur adipisicing.",
             image: EddyDev,
             TechnoFront: "NextJs et Tailwind CSS",

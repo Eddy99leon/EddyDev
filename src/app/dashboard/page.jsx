@@ -75,7 +75,7 @@ const Dashboard = () => {
             href="/dashboard/addBlog"
           >
             <button 
-              className="bg-sky-600 text-gray-950 font-semibold text-sm py-1 sm:py-2 px-2 sm:px-4 rounded-sm"
+              className="bg-blue-500 text-gray-950 font-semibold text-sm py-1 sm:py-2 px-2 sm:px-4 rounded-sm"
             >
               Ajouter
             </button>
@@ -94,9 +94,11 @@ const Dashboard = () => {
                   <div
                     className='md:col-span-2 overflow-hidden relative'
                   >
-                    <Image 
-                      src={illustration} 
-                      priority={false} 
+                    <Image  
+                      src={item.img} 
+                      priority={true}
+                      width={800} 
+                      height={250} 
                       placeholder = 'blur' 
                       alt='portfolio' 
                       className='w-full h-[230px] object-cover' 
@@ -104,13 +106,13 @@ const Dashboard = () => {
                     <div className='absolute -left-12 group-hover:left-2 inset-y-0 flex flex-col justify-center gap-3 transition-all duration-200'>
                       <Link 
                         href={`/blog/${item._id}`} as={`/blog/${item._id}`}
-                        className='bg-blue-600 shadow-lg p-3'
+                        className='bg-blue-500 shadow-lg p-3'
                       >
                         <MdRemoveRedEye className='text-xl text-black' />
                       </Link>
                       <button 
                         onClick={() => handleDelete(item._id)}
-                        className='bg-blue-600 shadow-lg p-3'
+                        className='bg-blue-500 shadow-lg p-3'
                       >
                         <MdDelete className='text-xl text-black' />
                       </button>
